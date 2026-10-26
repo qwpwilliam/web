@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript程序结构：循环与条件</title>
+    <style>
+        body {
+            font-family: Arial, "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            margin: 24px;
+        }
+
+        .example {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        pre {
+            overflow-x: auto;
+            padding: 12px;
+            background: #f4f4f4;
+        }
+
+        .numbers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .number {
+            width: 72px;
+            padding: 8px 0;
+            border: 1px solid #888;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .even {
+            background: #dff3e4;
+        }
+
+        .odd {
+            background: #fff0cc;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript程序结构：循环与条件</h1>
+
+    <section class="example">
+        <h2>循环：重复执行</h2>
+        <p><code>for</code> 循环可以让程序重复执行一段代码。下面的循环从 1 数到 10，每次增加 1。</p>
+        <pre><code>for (let number = 1; number &lt;= 10; number++) {
+    // 循环体：每次循环执行这里的代码
+}</code></pre>
+        <ul>
+            <li><code>let number = 1</code>：设置初始值。</li>
+            <li><code>number &lt;= 10</code>：条件成立时继续循环。</li>
+            <li><code>number++</code>：每轮结束后加 1。</li>
+        </ul>
+    </section>
+
+    <section class="example">
+        <h2>条件：根据情况选择</h2>
+        <p>循环每次数到一个数字时，使用 <code>if...else</code> 判断它是偶数还是奇数。</p>
+        <pre><code>if (number % 2 === 0) {
+    // 条件成立：这是偶数
+} else {
+    // 条件不成立：这是奇数
+}</code></pre>
+    </section>
+
+    <section class="example">
+        <h2>运行结果：1 到 10</h2>
+        <p>绿色表示偶数，黄色表示奇数。</p>
+        <div class="numbers" id="numbers"></div>
+    </section>
+
+    <script>
+        const numbers = document.getElementById("numbers");
+
+        for (let number = 1; number <= 10; number++) {
+            const item = document.createElement("div");
+            item.className = "number";
+
+            if (number % 2 === 0) {
+                item.classList.add("even");
+                item.textContent = number + "：偶数";
+            } else {
+                item.classList.add("odd");
+                item.textContent = number + "：奇数";
+            }
+
+            numbers.appendChild(item);
+        }
+    </script>
+</body>
+</html>
